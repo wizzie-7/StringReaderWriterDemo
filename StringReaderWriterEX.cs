@@ -4,29 +4,19 @@ using System.Text;
 
 namespace StringReaderWriterDemo
 {
-    class StringReaderWriterEX
+    public class StringReaderWriterOperation
     {
         StringBuilder SB = new StringBuilder();
-        public StringReaderWriterEX()
-        {
-            Writer();
-
-            Reader();
-        }
-        static void Main(string[] args)
+        public void WriteString()
         {
             
-            //File.Create(@"D:\wizzie\DOT NET\StringReadWrite.txt");
-            //FileInfo f1 = new FileInfo(@"D:\wizzie\DOT NET\StringReadWrite.txt");
-            //Console.WriteLine(f1.Exists);
-            //Console.WriteLine(f1.Extension);
-            
+            File.Create(@"D:\wizzie\DOT NET\StringReadWrite.txt");
+            FileInfo f1 = new FileInfo(@"D:\wizzie\DOT NET\StringReadWrite.txt");
+            Console.WriteLine(f1.Exists);
+            Console.WriteLine(f1.Extension);
 
 
-            
-        }
-        public void Writer()
-        {
+
             StringWriter SW = new StringWriter();
             Console.WriteLine("Welcome to String Writer Program");
             SW.Write("Name: ");
@@ -47,11 +37,10 @@ namespace StringReaderWriterDemo
             SW.Flush();
             SW.Close();
         }
-        public void Reader()
+        public void ReadString()
         {
             StringReader SR = new StringReader(SB.ToString());
             Console.WriteLine("Reading Profiel");
-
             while (SR.Peek() > -1)
             {
                 Console.WriteLine(SR.ReadLine());
@@ -59,5 +48,16 @@ namespace StringReaderWriterDemo
             Console.WriteLine("DATA READ COMPLETED!!!!");
             SR.Close();
         }
+    }
+    class StringReaderWriterEX
+    {
+        
+        
+        static void Main(string[] args)
+        {
+            StringReaderWriterOperation SD = new StringReaderWriterOperation();
+            SD.WriteString();
+            SD.ReadString();
+        }        
     }
 }
